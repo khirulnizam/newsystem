@@ -11,6 +11,15 @@ $result = mysqli_query($conn, $sql);
 
 //check records fetched available
 if (mysqli_num_rows($result) > 0) {
+?>
+	<table>
+		<thead>
+			<td>ID</td>
+			<td>Matrix</td>
+			<td>Name</td>
+			<td>Address</td>
+		</thead>
+<?php
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
         echo "Student ID ".$row['id']."<br>";
