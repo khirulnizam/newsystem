@@ -1,7 +1,8 @@
 <?php
-include "header.template.php";
+include "include/header.template.php";
+// filename formshow.php
 
-include "dbconnect.php";
+include "include/dbconnect.php";
 
 $x=$_GET['x'];
 $sql="SELECT * FROM students
@@ -50,5 +51,5 @@ else{//record with id x found
 
 </form>
 <?php
-include "footer.template.php";
+include "include/footer.template.php";
 ?>

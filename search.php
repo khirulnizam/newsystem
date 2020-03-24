@@ -1,5 +1,5 @@
 <?php
-	include "header.template.php";
+	include "include/header.template.php";
 	//getbootstrap.com
 ?>
 <div class="float-right">
@@ -15,7 +15,7 @@
 <?php
 //filename search.php
 //use the previous settings
-include "dbconnect.php";
+include "include/dbconnect.php";
 
 //embed SQL commands
 if(isset($_GET['keyword'])){//based on keyword entered
@@ -68,5 +68,5 @@ mysqli_close($conn);
 ?>
 
 <?php
-	include "footer.template.php";
+	include "include/footer.template.php";
 ?>

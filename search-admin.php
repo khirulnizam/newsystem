@@ -1,7 +1,14 @@
 <?php
-	include "header.template.php";
+	include "include/header.template.php";
 	//getbootstrap.com
+
+if(isset($_GET['message'])){
+	echo "<div class='alert alert-success'>";
+	echo $_GET['message']."</div>";
+}
+//github.com/khirulnizam/newsystem
 ?>
+
 <div class="float-right">
 	<!--  Search Bar -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
@@ -25,7 +32,7 @@
 <?php
 //filename search.php
 //use the previous settings
-include "dbconnect.php";
+include "include/dbconnect.php";
 
 //embed SQL commands
 if(isset($_GET['keyword'])){//based on keyword entered
@@ -72,19 +79,30 @@ if (mysqli_num_rows($result) > 0) {
     			"<i class='fas fa-file-alt'></i>".
     			"</a> &nbsp;";
         //edit button
-        echo "<a href='formedit.php?x=$id' ".
+        echo "<a href='formupdate.php?x=$id' ".
     			"class='btn btn-warning btn-sm'>".
     			"<i class='fas fa-pen-square'></i>".
     			"</a> &nbsp;";
         //delete button
-        echo "<a href='formdelete.php?x=$id' ".
-        		"class='btn btn-danger btn-sm'>".
+    	$name=$row['name'];
+        echo "<button class='btn btn-danger btn-sm'".
+        		"onclick='confirmdelete($id)'>".
     			"<i class='fas fa-trash'></i>".
-    			"</a> &nbsp;";
+    			"</button> &nbsp;";
         echo "</td></tr>\n";
     }
     ?>
 	</table>
+	<script type="text/javascript">
+		function confirmdelete(id){
+			var message="Are you sure to DELETE the record(id:"+id+")?"
+			var r= confirm(message);
+			if (r==true){
+				//redirect if user press yes
+				window.location.href = "delete.php?x="+id;
+			}
+		}
+	</script>
     <?php
 } 
 else {
@@ -96,5 +114,5 @@ mysqli_close($conn);
 ?>
 
 <?php
-	include "footer.template.php";
+	include "include/footer.template.php";
 ?>

@@ -1,7 +1,7 @@
 <?php
 //filename listing.php
 //use the previous settings
-include "dbconnect.php";
+include "include/dbconnect.php";
 
 //embed SQL commands
 $sql = "SELECT id, matrixno, name, address, dob 

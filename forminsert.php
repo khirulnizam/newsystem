@@ -1,5 +1,5 @@
 <?php
-include "header.template.php";
+include "include/header.template.php";
 //display info from saverecord.php
 if(isset($_GET['message'])){
 	echo "<div class='alert alert-success'>";
@@ -32,5 +32,5 @@ if(isset($_GET['message'])){
 
 </form>
 <?php
-include "footer.template.php";
+include "include/footer.template.php";
 ?>
