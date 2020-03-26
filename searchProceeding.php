@@ -50,6 +50,7 @@ if (mysqli_num_rows($result) > 0) {
 		</tr>
 	<?php
     while($row = mysqli_fetch_assoc($result)) {
+    	//display records
     	echo "<tr>";
         echo "<td> ".$row['id']."</td>";
         echo "<td> ".$row['title'] ."</td>";

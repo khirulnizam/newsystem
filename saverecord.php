@@ -9,10 +9,13 @@ if(isset($_POST['name']) && isset($_POST['matrixno'])){
 	$matrixno=$_POST['matrixno'];
 	$address=$_POST['address'];
 	$dob=$_POST['dob'];
+	$programcode=$_POST['programcode'];
 
 	//sql command to insert record
-	$sql="INSERT INTO students(name,matrixno,address,dob) 
-			VALUES ('$name','$matrixno','$address','$dob') ";
+	$sql="INSERT INTO students(name,matrixno,address,
+			dob,programcode) 
+			VALUES ('$name','$matrixno','$address',
+			'$dob','$programcode') ";
 	$result=mysqli_query($conn,$sql);
 
 	//redirect to forminsert.php

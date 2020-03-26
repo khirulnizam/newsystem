@@ -23,8 +23,31 @@ if(isset($_GET['message'])){
 
 	<label for="dob">Date of birth</label>
 	<input type="date" name="dob" class="form-control"
-		placeholder="Student date of birth"><br>
+		placeholder="Student date of birth">
 
+	<!-- additional for drop-down program -->
+	<label for="programcode">Program</label>
+	<select class="form-control" name="programcode">
+		<option value="0">Select program from this list
+		</option>
+		<?php
+			//connect to datase
+			include "include/dbconnect.php";
+			$sql = "SELECT * FROM programs";
+			$result=mysqli_query($conn,$sql);
+			//display in options
+			while($row=mysqli_fetch_array($result)){
+				$code=$row['programcode'];
+				$pname=$row['programname'];
+				echo "<option value='$code'>".
+						"$code $pname ".
+						"</option>";
+			}
+
+		?>
+		
+	</select>
+	<br>
 	<div class="float-right">
 		<button type="submit" class ="btn btn-primary">
 		Save record</button>
