@@ -100,6 +100,7 @@ if (mysqli_num_rows($result) > 0) {
 			if (r==true){
 				//redirect if user press yes
 				window.location.href = "delete.php?x="+id;
+        //document.getElementById('myForm').submit();
 			}
 		}
 	</script>
