@@ -33,9 +33,16 @@ method="get">
     ?>
     <br>
     MatrixNo to verify your registration<br>
-    <input type="text" name="matrixno" required 
-    class="form-control">
-    <button type="submit" class="btn btn-primary">Save Register</button>
+    <div class="row">
+        <div class="column">
+        <input type="text" name="matrixno" required 
+        class="form-control">
+        </div>
+        <div class="column">
+        <button type="submit" class="btn btn-primary">
+            Save Register</button>
+        </div>  
+    </div>
 </form>
 
 
