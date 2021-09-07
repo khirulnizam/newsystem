@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `programs` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table newsystem.programs: ~4 rows (approximately)
+-- Dumping data for table newsystem.programs: ~5 rows (approximately)
 /*!40000 ALTER TABLE `programs` DISABLE KEYS */;
 INSERT INTO `programs` (`id`, `programcode`, `programname`) VALUES
 	(1, 'MS36', 'Diploma in Multimedia'),
@@ -148,10 +148,34 @@ INSERT INTO `programs` (`id`, `programcode`, `programname`) VALUES
 	(5, 'BT05', 'Bach. Info System');
 /*!40000 ALTER TABLE `programs` ENABLE KEYS */;
 
+-- Dumping structure for table newsystem.shortcourses
+CREATE TABLE IF NOT EXISTS `shortcourses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sccode` varchar(10) NOT NULL,
+  `sctitle` varchar(100) DEFAULT NULL,
+  `scdesc` varchar(200) DEFAULT NULL,
+  `sctrainer` varchar(100) DEFAULT NULL,
+  `scdate` date DEFAULT NULL,
+  `sctime` time DEFAULT NULL,
+  PRIMARY KEY (`sccode`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table newsystem.shortcourses: ~6 rows (approximately)
+/*!40000 ALTER TABLE `shortcourses` DISABLE KEYS */;
+INSERT INTO `shortcourses` (`id`, `sccode`, `sctitle`, `scdesc`, `sctrainer`, `scdate`, `sctime`) VALUES
+	(4, 'CV01', 'Canva Graphic Basics', 'Basics Graphic Editing Using Canva', 'MS', '2021-09-30', '09:00:00'),
+	(5, 'CV02', 'Canva Intermediate', 'Intermediate Graphics Editing', 'MS', '2021-10-07', '09:00:00'),
+	(1, 'FL01', 'Flutter Basics', 'Mobile development using Flutter and Android Studio', 'KN', '2021-10-07', '09:00:00'),
+	(2, 'IN01', 'Ionic Basics', 'Mobile development using Ionic and VScode', 'KN', '2021-09-30', '09:00:00'),
+	(3, 'LR01', 'Laravel Web', 'Web Developement using Laravel PHP Framework', 'KN', '2021-11-11', '09:00:00'),
+	(6, 'MS01', 'MSWord Basics', 'Microsoft Office MSWord', 'CW', '2021-11-11', '09:00:00');
+/*!40000 ALTER TABLE `shortcourses` ENABLE KEYS */;
+
 -- Dumping structure for table newsystem.students
 CREATE TABLE IF NOT EXISTS `students` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `matrixno` varchar(50) DEFAULT NULL,
+  `matrixno` varchar(10) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
   `address` blob,
   `dob` date DEFAULT NULL,
@@ -159,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
--- Dumping data for table newsystem.students: ~6 rows (approximately)
+-- Dumping data for table newsystem.students: ~7 rows (approximately)
 /*!40000 ALTER TABLE `students` DISABLE KEYS */;
 INSERT INTO `students` (`id`, `matrixno`, `name`, `address`, `dob`, `programcode`) VALUES
 	(4, '123456', 'Khirulnizam Abd Rahman', _binary 0x42616E6769, '2000-03-28', 'MS36'),
@@ -170,6 +194,22 @@ INSERT INTO `students` (`id`, `matrixno`, `name`, `address`, `dob`, `programcode
 	(9, '123460', 'Amin bin Rahman', _binary 0x536572656D62616E, '2000-03-12', 'MS39'),
 	(10, '123455', 'Abu Bakar Atan', _binary 0x4E696C61692C204E2E2053656D62696C616E, '2000-04-05', 'BT05');
 /*!40000 ALTER TABLE `students` ENABLE KEYS */;
+
+-- Dumping structure for table newsystem.students_register_scourses
+CREATE TABLE IF NOT EXISTS `students_register_scourses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `matrixno` varchar(10) NOT NULL,
+  `sccode` varchar(10) NOT NULL,
+  `datetimereg` datetime NOT NULL,
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table newsystem.students_register_scourses: ~0 rows (approximately)
+/*!40000 ALTER TABLE `students_register_scourses` DISABLE KEYS */;
+INSERT INTO `students_register_scourses` (`id`, `matrixno`, `sccode`, `datetimereg`) VALUES
+	(1, '123455', 'CV02', '2021-09-07 14:18:45'),
+	(2, '123455', 'FL01', '2021-09-07 14:18:45');
+/*!40000 ALTER TABLE `students_register_scourses` ENABLE KEYS */;
 
 -- Dumping structure for table newsystem.students_result
 CREATE TABLE IF NOT EXISTS `students_result` (
