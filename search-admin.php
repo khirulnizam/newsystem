@@ -37,18 +37,27 @@ include "include/dbconnect.php";
 //embed SQL commands
 if(isset($_GET['keyword'])){//based on keyword entered
 	$keyword=$_GET['keyword'];
-	$sql = "SELECT id, matrixno, name, address, dob 
+	$sql = "SELECT id, matrixno, name, address, 
+			students.programcode, programname
 				FROM students 
-				WHERE name LIKE '%$keyword%'";
+				INNER JOIN programs
+				ON students.programcode = program.programcode
+				WHERE name LIKE '%$keyword%'
+				ORDER BY matrixno ASC";
 }
 else{//first time page load, list all
-	$sql = "SELECT id, matrixno, name, address, dob 
-				FROM students ";
+	$sql = "SELECT students.id, matrixno, name, address, 
+		students.programcode, programname
+		FROM students 
+		INNER JOIN programs
+		ON students.programcode = programs.programcode 
+		ORDER BY matrixno ASC";
 }
 
 
 //execute sql commands that will return result set
 $result = mysqli_query($conn, $sql);
+//echo "Sql error:".mysqli_error($conn);
 
 //check records fetched available
 if (mysqli_num_rows($result) > 0) {
@@ -59,7 +68,7 @@ if (mysqli_num_rows($result) > 0) {
 			<th>ID</th>
 			<th>Matrix</th>
 			<th>Name</th>
-			<th>DOB</th>
+			<th>Program</th>
 			<th>Tasks</th>
 		</tr>
 	<?php
@@ -69,7 +78,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "<td> $id </td>";
         echo "<td> ".$row['matrixno'] ."</td>";
         echo "<td> ".$row['name'] ."</td>";
-        echo "<td> ".$row['dob'] ."</td>";
+        echo "<td> ".$row['programname'] ."</td>";
 
 
         echo "<td> ";

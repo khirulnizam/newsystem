@@ -2,7 +2,7 @@
 //filename dbconnect
 $servername = "localhost";//server location / IP number
 $username = "root";//db admin username
-$password = "abcd1234";//password for db admin username
+$password = "";//password for db admin username
 $dbname = "newsystem";//database name
 
 // Create connection

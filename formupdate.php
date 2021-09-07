@@ -27,8 +27,8 @@ else{//record with id x found
 
 <h3>Update Student record details</h3>
 <form action="saveupdate.php" method="post">
-	<label for="name">Record id</label>
-	<input type="text" name="id" class="form-control"
+
+	<input type="hidden" name="id" class="form-control"
 		value="<?php echo $record['id']; ?>" readonly>
 
 	<label for="name">Student Name</label>
@@ -45,7 +45,22 @@ else{//record with id x found
 
 	<label for="dob">Date of birth</label>
 	<input type="date" name="dob" class="form-control"
-		value="<?php echo $dob; ?>"><br>
+		value="<?php echo $dob; ?>">
+	
+	<label for="programcode">Program code</label>
+	<select name="programcode" class="form-control">
+		<?php
+		//populate table programs to drop-down
+		$sql2="SELECT * FROM programs";
+		$result2=mysqli_query($conn,$sql2);
+		while($rec2=mysqli_fetch_assoc($result2)){
+			$pname=$rec2['programname'];
+			$pcode=$rec2['programcode'];
+			echo "<option value='$pcode'>$pcode $pname</option>";
+		}//end while rec2 
+		?>
+		
+	</select>
 
 	<div class="float-right">
 

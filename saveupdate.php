@@ -7,12 +7,14 @@ if(isset($_POST['name']) && isset($_POST['matrixno'])){
 	$matrixno=$_POST['matrixno'];
 	$address=$_POST['address'];
 	$dob=$_POST['dob'];
+	$programcode=$_POST['programcode'];
 	//sql command to update record
 	$sql="UPDATE students
 		SET name='$name',
 			matrixno='$matrixno',
 			address='$address',
-			dob='$dob' 
+			dob='$dob',
+			programcode='$programcode'
 		WHERE id='$id' ";
 
 	$result=mysqli_query($conn,$sql);
