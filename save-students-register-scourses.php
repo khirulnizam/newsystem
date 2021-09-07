@@ -5,7 +5,7 @@ if(isset($_GET['sccodes']) && $_GET['sccodes']!=null){//check atleast one shortc
     $matrixno=$_GET['matrixno'];
 }else{
     //if no shortcourse selected go back
-    header ("Location:form-students-register-scourses.php?msg=No shortcourse selected ");
+    header ("Location:form-students-register-scourses.php?error=No shortcourse selected ");
 }
 
 //checking nombor matrix exist
@@ -26,10 +26,11 @@ if(mysqli_num_rows($result1)==1){
         $result=mysqli_query($conn, $sql); 
 
     } 
+    header ("Location:form-students-register-scourses.php?success=Registration complete ");
 }
 else{
     //matrixno doesnot exist
-    header ("Location:form-students-register-scourses.php?msg=No such MatrixNo ");
+    header ("Location:form-students-register-scourses.php?error=No such MatrixNo ");
 }
 
 
