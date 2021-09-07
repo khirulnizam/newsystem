@@ -22,6 +22,7 @@ else{//record with id x found
 	$matrixno=$record['matrixno'];
 	$address=$record['address'];
 	$dob=$record['dob'];
+	$programcode=$record['programcode'];//from table students
 }
 ?>
 
@@ -56,7 +57,11 @@ else{//record with id x found
 		while($rec2=mysqli_fetch_assoc($result2)){
 			$pname=$rec2['programname'];
 			$pcode=$rec2['programcode'];
-			echo "<option value='$pcode'>$pcode $pname</option>";
+			if($programcode==$pcode){
+				echo "<option selected value='$pcode'>$pcode $pname</option>";
+			}else{
+				echo "<option value='$pcode'>$pcode $pname</option>";
+			}
 		}//end while rec2 
 		?>
 		
