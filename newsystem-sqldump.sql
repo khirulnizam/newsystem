@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `programs` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table newsystem.programs: ~5 rows (approximately)
+-- Dumping data for table newsystem.programs: ~4 rows (approximately)
 /*!40000 ALTER TABLE `programs` DISABLE KEYS */;
 INSERT INTO `programs` (`id`, `programcode`, `programname`) VALUES
 	(1, 'MS36', 'Diploma in Multimedia'),
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `students_register_scourses` (
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table newsystem.students_register_scourses: ~5 rows (approximately)
+-- Dumping data for table newsystem.students_register_scourses: ~4 rows (approximately)
 /*!40000 ALTER TABLE `students_register_scourses` DISABLE KEYS */;
 INSERT INTO `students_register_scourses` (`id`, `matrixno`, `sccode`, `datetimereg`) VALUES
 	(1, '123455', 'CV02', '2021-09-07 14:18:45'),
@@ -244,14 +244,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `fullname` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`email`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table newsystem.users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `profileimage`, `accesslevel`, `fullname`) VALUES
+	(5, 'abc', 'abc@gmail.com', 'e99a18c428cb38d5f260853678922e03', 'usersprofileimages/09-08-2021-17-11-55-Trainers-Kursus-PHP-Laravel-SPR-Putrajaya flip.jpeg', 'admin', 'Abc Def'),
 	(2, 'ali', 'ali@gmail.com', '984d8144fa08bfc637d2825463e184fa', NULL, 'guest', 'Ali bin Ahmad'),
 	(1, 'kerul', 'kerul@gmail.com', 'e99a18c428cb38d5f260853678922e03', NULL, 'admin', 'Khirulnizam Abd Rahman'),
-	(4, 'khirul', 'khirulnizam@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'admin', 'Khirulnizam'),
+	(4, 'khirul12345', 'khirulnizam@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'usersprofileimages/09-08-2021-17-08-25-T24 - login & session.png', 'admin', 'Khirulnizam12345'),
 	(3, 'mutu', 'mutu@gmail.com', 'd45d1570a1d9fd458fd192f180944948', NULL, 'admin', 'Ilmu Mutu dan Budi');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
