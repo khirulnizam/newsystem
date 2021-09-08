@@ -202,13 +202,16 @@ CREATE TABLE IF NOT EXISTS `students_register_scourses` (
   `sccode` varchar(10) NOT NULL,
   `datetimereg` datetime NOT NULL,
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table newsystem.students_register_scourses: ~0 rows (approximately)
+-- Dumping data for table newsystem.students_register_scourses: ~5 rows (approximately)
 /*!40000 ALTER TABLE `students_register_scourses` DISABLE KEYS */;
 INSERT INTO `students_register_scourses` (`id`, `matrixno`, `sccode`, `datetimereg`) VALUES
 	(1, '123455', 'CV02', '2021-09-07 14:18:45'),
-	(2, '123455', 'FL01', '2021-09-07 14:18:45');
+	(2, '123455', 'FL01', '2021-09-07 14:18:45'),
+	(3, '123456', 'FL01', '2021-09-07 14:32:38'),
+	(4, '123456', 'IN01', '2021-09-07 14:32:38'),
+	(5, '123456', 'LR01', '2021-09-07 14:32:38');
 /*!40000 ALTER TABLE `students_register_scourses` ENABLE KEYS */;
 
 -- Dumping structure for table newsystem.students_result
@@ -234,19 +237,22 @@ INSERT INTO `students_result` (`id`, `matrixno`, `name`, `mark`) VALUES
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
+  `email` varchar(50) NOT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `profileimage` varchar(255) DEFAULT NULL,
   `accesslevel` varchar(50) DEFAULT NULL,
   `fullname` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`email`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table newsystem.users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `accesslevel`, `fullname`) VALUES
-	(1, 'kerul', 'kerul@gmail.com', 'e99a18c428cb38d5f260853678922e03', 'admin', 'Khirulnizam Abd Rahman'),
-	(2, 'ali', 'ali@gmail.com', '984d8144fa08bfc637d2825463e184fa', 'guest', 'Ali bin Ahmad'),
-	(3, 'mutu', 'mutu@gmail.com', 'd45d1570a1d9fd458fd192f180944948', 'admin', 'Ilmu Mutu dan Budi');
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `profileimage`, `accesslevel`, `fullname`) VALUES
+	(2, 'ali', 'ali@gmail.com', '984d8144fa08bfc637d2825463e184fa', NULL, 'guest', 'Ali bin Ahmad'),
+	(1, 'kerul', 'kerul@gmail.com', 'e99a18c428cb38d5f260853678922e03', NULL, 'admin', 'Khirulnizam Abd Rahman'),
+	(4, 'khirul', 'khirulnizam@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'admin', 'Khirulnizam'),
+	(3, 'mutu', 'mutu@gmail.com', 'd45d1570a1d9fd458fd192f180944948', NULL, 'admin', 'Ilmu Mutu dan Budi');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
