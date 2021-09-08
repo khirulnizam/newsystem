@@ -61,7 +61,12 @@
       <li class="nav-item">
         <a class="nav-link" href="search-admin.php">
           <i class="fas fa-fw fa-search"></i>
-          <span>Search admin</span></a>
+          <span>Search students</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="logout.php">
+          <i class="fas fa-fw fa-sign-out-alt"></i>
+          <span>Logout</span></a>
       </li>
 
       
