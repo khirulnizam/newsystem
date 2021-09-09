@@ -64,9 +64,18 @@
           <span>Search students</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="logout.php">
-          <i class="fas fa-fw fa-sign-out-alt"></i>
-          <span>Logout</span></a>
+        <?php if(isset($_SESSION['email'])){
+          echo "<a class='nav-link' href='logout.php'>
+          <i class='fas fa-fw fa-sign-out-alt'></i>
+          <span>Logout</span></a>";
+        } 
+        else{
+          echo "<a class='nav-link' href='login.php'>
+          <i class='fas fa-fw fa-sign-in-alt'></i>
+          <span>Login</span></a>";
+        }?>
+        
+        
       </li>
 
       

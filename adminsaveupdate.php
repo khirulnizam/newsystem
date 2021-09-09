@@ -4,18 +4,16 @@ include "adminchecksession.php";
 if(isset($_FILES["imagetoupload"])) {
     include "include/dbconnect.php";
 
-    //$imejprofile="";
-
     //proses upload gambar
     $target_dir = "usersprofileimages/";//folder to store images
 
-    //new file name with the target directory folder
-    $target_file = $target_dir.date('m-d-Y-H-i-s')."-". basename($_FILES["imagetoupload"]["name"]);
+    //new file rename with the target directory folder
+    $target_file = $target_dir.date('m-d-Y-H-i-s')."-".
+            basename($_FILES["imagetoupload"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
     // Check if image file is a actual image or fake image
-    
     $check = getimagesize($_FILES["imagetoupload"]["tmp_name"]);
     if($check !== false) {
         echo "File is an image - " . $check["mime"] . ".";
@@ -59,8 +57,8 @@ if(isset($_FILES["imagetoupload"])) {
             echo "Sorry, there was an error uploading your file.";
         }
     }
-    //simpan rekod
 
+    //simpan rekod
     //fetch new data from update form
     $username=$_POST['username'];
     $fullname=$_POST['fullname'];
@@ -80,7 +78,7 @@ if($result==true){//berjaya simpan rekod staf baharu
     if($imejprofile!=null){
         //kalau ada gambar sistem papar
         $gambar=$target_dir.$imejprofile;
-        echo "<img src='$gambar' width='50%'>";
+        //echo "<img src='$gambar' width='50%'>";
 
         //reset session with new data update
         //$_SESSION['email']=$rec['email'];

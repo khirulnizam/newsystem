@@ -2,7 +2,26 @@
     include "adminchecksession.php";
 ?>
 <?php include "include/header.template.php"; ?>
+
+
+<div class="card">
+    <div class="card-header">
+        <h1>Admin tasks</h1>
+    </div>
+    <div class="card-body">
+        1. <a href="staffuseradd.php">Add staff user </a><br>
+        2. <a href="staffuserlist.php">Modify/edit/reset/delete staff user </a><br>
+        3. <a href="guestuserlist.php">Modify/edit/reset/delete guest user </a><br>
+    </div>
+
+</div>
+<!-- end class card for admin tasks -->
+<br>
+<hr>
+<br>
+
 <h1>Admin user profiles data update</h1>
+<?php include "noti.php"; ?>
 <form action="adminsaveupdate.php" method="post"
     enctype="multipart/form-data">
     Username
