@@ -1,3 +1,6 @@
+
+<!-- save-students-register-scourses.php -->
+<?php include "include/header.template.php"; ?>
 <?php  
 //save-students-register-scourses.php
 if(isset($_GET['sccodes']) && $_GET['sccodes']!=null){//check atleast one shortcourse selected
@@ -5,7 +8,7 @@ if(isset($_GET['sccodes']) && $_GET['sccodes']!=null){//check atleast one shortc
     $matrixno=$_GET['matrixno'];
 }else{
     //if no shortcourse selected go back
-    header ("Location:form-students-register-scourses.php?error=No shortcourse selected ");
+    header ("Location:form-students-register-scourses.php?matrixno=$matrixno&error=No shortcourse selected ");
 }
 
 //checking nombor matrix exist
@@ -26,13 +29,18 @@ if(mysqli_num_rows($result1)==1){
         $result=mysqli_query($conn, $sql); 
 
     } 
-    header ("Location:form-students-register-scourses.php?success=Registration complete ");
+    //header ("Location:search-admin.php?success=Registration for shortcourses successfully completed ");
+    echo "Registration for shortcourses successfully completed";
+
+    //this part is to display all the shortcourses 
+    //registered with the course title
+
+    include "displayregshortcourses.php";
 }
 else{
     //matrixno doesnot exist
-    header ("Location:form-students-register-scourses.php?error=No such MatrixNo ");
+    //header ("Location:formshow.php?error=No such MatrixNo ");
+    echo "No such MatrixNo";
 }
-
-
-
 ?>
+<?php include "include/footer.template.php"; ?>

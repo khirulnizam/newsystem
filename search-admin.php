@@ -17,7 +17,7 @@ if(isset($_GET['message'])){
               <input type="text" name="keyword" 
               class="form-control bg-light border-1 small" placeholder="Search students..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
+                <button class="btn btn-primary" type="submit">
                   <i class="fas fa-search fa-sm"></i>
                 </button>
               </div>
@@ -37,11 +37,11 @@ include "include/dbconnect.php";
 //embed SQL commands
 if(isset($_GET['keyword'])){//based on keyword entered
 	$keyword=$_GET['keyword'];
-	$sql = "SELECT id, matrixno, name, address, 
+	$sql = "SELECT students.id, matrixno, name, address, 
 			students.programcode, programname
 				FROM students 
 				INNER JOIN programs
-				ON students.programcode = program.programcode
+				ON students.programcode = programs.programcode
 				WHERE name LIKE '%$keyword%'
 				ORDER BY matrixno ASC";
 }

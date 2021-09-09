@@ -1,7 +1,6 @@
 <?php
-include "include/header.template.php";
 // filename formshow.php
-
+include "include/header.template.php";
 include "include/dbconnect.php";
 
 $x=$_GET['x'];
@@ -33,7 +32,8 @@ else{//record with id x found
 
 	<label for="matrixno">Matrix No</label>
 	<input type="text" name="matrixno" class="form-control"
-		value="<?php echo $matrixno; ?>">
+	readonly
+	value="<?php echo $matrixno; ?>">
 
 	<label for="address">Address</label>
 	<input type="text" name="address" class="form-control"
@@ -50,6 +50,9 @@ else{//record with id x found
 	</div>
 
 </form>
+<hr>
 <?php
+//display list of registered shortcourses here
+include "displayregshortcourses.php";
 include "include/footer.template.php";
 ?>

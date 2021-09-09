@@ -35,7 +35,9 @@ method="get">
     MatrixNo to verify your registration<br>
     <div class="row">
         <div class="column">
-        <input type="text" name="matrixno" required 
+        <input type="text" name="matrixno" 
+        value="<?php echo $_GET['matrixno']?>"
+        required 
         class="form-control">
         </div>
         <div class="column">
