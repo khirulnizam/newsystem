@@ -244,15 +244,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `fullname` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`email`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table newsystem.users: ~3 rows (approximately)
+-- Dumping data for table newsystem.users: ~4 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `profileimage`, `accesslevel`, `fullname`) VALUES
 	(5, 'abc', 'abc@gmail.com', 'e99a18c428cb38d5f260853678922e03', 'usersprofileimages/09-08-2021-17-11-55-Trainers-Kursus-PHP-Laravel-SPR-Putrajaya flip.jpeg', 'admin', 'Abc Def'),
+	(7, 'admin', 'admin@gmail.com', '0192023a7bbd73250516f069df18b500', 'usersprofileimages/09-09-2021-01-12-25-Trainers-Kursus-PHP-Laravel-SPR-Putrajaya flip.jpeg', 'admin', 'abamin fstm10'),
+	(6, 'ahmad', 'ahmad@gmail.com', '8de13959395270bf9d6819f818ab1a00', NULL, 'staff', 'ahmad'),
 	(2, 'ali', 'ali@gmail.com', '984d8144fa08bfc637d2825463e184fa', NULL, 'guest', 'Ali bin Ahmad'),
 	(1, 'kerul', 'kerul@gmail.com', 'e99a18c428cb38d5f260853678922e03', NULL, 'admin', 'Khirulnizam Abd Rahman'),
-	(4, 'khirul12345', 'khirulnizam@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'usersprofileimages/09-08-2021-17-08-25-T24 - login & session.png', 'admin', 'Khirulnizam12345'),
+	(4, 'khirul12345', 'khirulnizam@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'usersprofileimages/09-08-2021-17-08-25-T24 - login & session.png', 'staff', 'Khirulnizam12345'),
 	(3, 'mutu', 'mutu@gmail.com', 'd45d1570a1d9fd458fd192f180944948', NULL, 'admin', 'Ilmu Mutu dan Budi');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
