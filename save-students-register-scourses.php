@@ -1,4 +1,3 @@
-
 <!-- save-students-register-scourses.php -->
 <?php include "include/header.template.php"; ?>
 <?php  
@@ -36,6 +35,7 @@ if(mysqli_num_rows($result1)==1){
     //registered with the course title
 
     include "displayregshortcourses.php";
+    include "displaypaymentform.php";
 }
 else{
     //matrixno doesnot exist
