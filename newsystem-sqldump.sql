@@ -35,6 +35,31 @@ INSERT INTO `activities` (`id`, `activityname`, `time`, `date`, `speaker`, `user
 	(2, 'masak bubur lambuk', '22:55:00', '2020-09-24', 'Tan Sri Farid', 3);
 /*!40000 ALTER TABLE `activities` ENABLE KEYS */;
 
+-- Dumping structure for table newsystem.ebooks
+CREATE TABLE IF NOT EXISTS `ebooks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bookid` varchar(10) NOT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `price` decimal(5,2) DEFAULT NULL,
+  `author` varchar(200) DEFAULT NULL,
+  `downloadlink` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`bookid`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table newsystem.ebooks: ~0 rows (approximately)
+/*!40000 ALTER TABLE `ebooks` DISABLE KEYS */;
+INSERT INTO `ebooks` (`id`, `bookid`, `title`, `price`, `author`, `downloadlink`) VALUES
+	(8, 'FIR01', 'Google Firebase Firestore', 50.00, 'Khirulnizam', NULL),
+	(5, 'FLT01', 'Flutter Basics', 50.00, 'Khirulnizam', NULL),
+	(7, 'ION01', 'Ionic Basics to Intermediate', 59.00, 'Khirulnizam', NULL),
+	(2, 'LAR07', 'Laravel 7 Basics', 59.00, 'Khirulnizam ', NULL),
+	(1, 'LAR08', 'Laravel 8 Basics to Intermediate', 79.00, 'Khirulnizam Abd Rahman', NULL),
+	(3, 'PHP01', 'Basic PHP', 50.00, 'Mohd Hafiz', NULL),
+	(4, 'PHP02', 'Intermediate PHP with MYSQL', 50.00, 'Che Wan Shamsul', NULL),
+	(6, 'POW01', 'Powtoon Animation', 50.00, 'Muizz Salleh', NULL);
+/*!40000 ALTER TABLE `ebooks` ENABLE KEYS */;
+
 -- Dumping structure for table newsystem.insts
 CREATE TABLE IF NOT EXISTS `insts` (
   `institution_code` varchar(10) NOT NULL,
@@ -175,24 +200,26 @@ INSERT INTO `shortcourses` (`id`, `sccode`, `sctitle`, `scdesc`, `sctrainer`, `s
 -- Dumping structure for table newsystem.students
 CREATE TABLE IF NOT EXISTS `students` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `matrixno` varchar(10) DEFAULT NULL,
+  `matrixno` varchar(10) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `address` blob,
   `dob` date DEFAULT NULL,
   `programcode` varchar(6) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `rshortcourses` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`matrixno`),
+  KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table newsystem.students: ~7 rows (approximately)
 /*!40000 ALTER TABLE `students` DISABLE KEYS */;
-INSERT INTO `students` (`id`, `matrixno`, `name`, `address`, `dob`, `programcode`) VALUES
-	(4, '123456', 'Khirulnizam Abd Rahman', _binary 0x42616E6769, '2000-03-28', 'MS36'),
-	(5, '123457', 'Azman Ali', _binary 0x4E696C6169, '2000-11-24', 'MS39'),
-	(6, '123458', 'Syarifah Rahman', _binary 0x536572656D62616E65, '2000-10-19', 'MS36'),
-	(7, '123459', 'Aminah Hassan', _binary 0x4D656C616B61, '2000-03-10', 'MS39'),
-	(8, '123460', 'Ali Bakar Abu', _binary 0x5061726F69, '2000-08-05', 'MS36'),
-	(9, '123460', 'Amin bin Rahman', _binary 0x536572656D62616E, '2000-03-12', 'MS39'),
-	(10, '123455', 'Abu Bakar Atan', _binary 0x4E696C61692C204E2E2053656D62696C616E, '2000-04-05', 'BT05');
+INSERT INTO `students` (`id`, `matrixno`, `name`, `address`, `dob`, `programcode`, `rshortcourses`) VALUES
+	(1, '123451', 'Khirulnizam Abd Rahman', _binary 0x42616E6769, '2000-03-28', 'MS36', 'CV01, FL01, LR01'),
+	(3, '123453', 'Abu Bakar Atan', _binary 0x4E696C61692C204E2E2053656D62696C616E, '2000-04-05', 'BT05', NULL),
+	(5, '123457', 'Azman Ali', _binary 0x4E696C6169, '2000-11-24', 'MS39', 'CV01, CV02'),
+	(6, '123458', 'Syarifah Rahman', _binary 0x536572656D62616E65, '2000-10-19', 'MS36', 'MS01'),
+	(7, '123459', 'Aminah Hassan', _binary 0x4D656C616B61, '2000-03-10', 'MS39', 'CV01, CV02, MS01, LR01'),
+	(8, '123461', 'Amin bin Rahman', _binary 0x536572656D62616E, '2000-03-12', 'MS39', NULL),
+	(10, '123462', 'Ali Bakar Abu', _binary 0x5061726F69, '2000-08-05', 'MS36', NULL);
 /*!40000 ALTER TABLE `students` ENABLE KEYS */;
 
 -- Dumping structure for table newsystem.students_register_scourses
@@ -202,16 +229,44 @@ CREATE TABLE IF NOT EXISTS `students_register_scourses` (
   `sccode` varchar(10) NOT NULL,
   `datetimereg` datetime NOT NULL,
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
--- Dumping data for table newsystem.students_register_scourses: ~4 rows (approximately)
+-- Dumping data for table newsystem.students_register_scourses: ~32 rows (approximately)
 /*!40000 ALTER TABLE `students_register_scourses` DISABLE KEYS */;
 INSERT INTO `students_register_scourses` (`id`, `matrixno`, `sccode`, `datetimereg`) VALUES
 	(1, '123455', 'CV02', '2021-09-07 14:18:45'),
 	(2, '123455', 'FL01', '2021-09-07 14:18:45'),
 	(3, '123456', 'FL01', '2021-09-07 14:32:38'),
 	(4, '123456', 'IN01', '2021-09-07 14:32:38'),
-	(5, '123456', 'LR01', '2021-09-07 14:32:38');
+	(5, '123456', 'LR01', '2021-09-07 14:32:38'),
+	(6, '123457', 'FL01', '2021-09-09 09:32:15'),
+	(7, '123457', 'IN01', '2021-09-09 09:32:15'),
+	(8, '123458', 'CV01', '2021-09-09 09:36:48'),
+	(9, '123458', 'CV02', '2021-09-09 09:36:48'),
+	(10, '123458', 'FL01', '2021-09-09 09:36:48'),
+	(11, '123458', 'IN01', '2021-09-09 09:36:48'),
+	(12, '123458', 'LR01', '2021-09-09 09:36:48'),
+	(13, '123458', 'MS01', '2021-09-09 09:36:48'),
+	(14, '123461', 'CV02', '2021-09-09 13:17:03'),
+	(15, '123461', 'FL01', '2021-09-09 13:17:03'),
+	(16, '123461', 'IN01', '2021-09-09 13:17:03'),
+	(17, '123460', 'CV01', '2021-09-09 13:19:35'),
+	(18, '123460', 'IN01', '2021-09-09 13:19:35'),
+	(19, '123460', 'MS01', '2021-09-09 13:19:35'),
+	(20, '123460', 'CV01', '2021-09-09 13:24:29'),
+	(21, '123460', 'IN01', '2021-09-09 13:24:29'),
+	(22, '123460', 'MS01', '2021-09-09 13:24:29'),
+	(23, '123460', 'CV01', '2021-09-09 13:25:02'),
+	(24, '123460', 'IN01', '2021-09-09 13:25:02'),
+	(25, '123460', 'MS01', '2021-09-09 13:25:02'),
+	(26, '123451', 'FL01', '2021-09-10 02:02:29'),
+	(27, '123451', 'IN01', '2021-09-10 02:02:29'),
+	(28, '123453', 'CV01', '2021-09-10 02:07:31'),
+	(29, '123453', 'CV02', '2021-09-10 02:07:31'),
+	(30, '123453', 'FL01', '2021-09-10 02:07:31'),
+	(31, '123453', 'IN01', '2021-09-10 02:07:31'),
+	(32, '123453', 'LR01', '2021-09-10 02:07:31'),
+	(33, '123453', 'MS01', '2021-09-10 02:07:31');
 /*!40000 ALTER TABLE `students_register_scourses` ENABLE KEYS */;
 
 -- Dumping structure for table newsystem.students_result
@@ -246,10 +301,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table newsystem.users: ~4 rows (approximately)
+-- Dumping data for table newsystem.users: ~6 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `profileimage`, `accesslevel`, `fullname`) VALUES
-	(5, 'abc', 'abc@gmail.com', 'e99a18c428cb38d5f260853678922e03', 'usersprofileimages/09-08-2021-17-11-55-Trainers-Kursus-PHP-Laravel-SPR-Putrajaya flip.jpeg', 'admin', 'Abc Def'),
+	(5, 'abc', 'abc@gmail.com', 'e99a18c428cb38d5f260853678922e03', 'usersprofileimages/09-09-2021-01-56-51-smartsolat-languages-600x337.png', 'admin', 'Abc Def'),
 	(7, 'admin', 'admin@gmail.com', '0192023a7bbd73250516f069df18b500', 'usersprofileimages/09-09-2021-01-12-25-Trainers-Kursus-PHP-Laravel-SPR-Putrajaya flip.jpeg', 'admin', 'abamin fstm10'),
 	(6, 'ahmad', 'ahmad@gmail.com', '8de13959395270bf9d6819f818ab1a00', NULL, 'staff', 'ahmad'),
 	(2, 'ali', 'ali@gmail.com', '984d8144fa08bfc637d2825463e184fa', NULL, 'guest', 'Ali bin Ahmad'),
