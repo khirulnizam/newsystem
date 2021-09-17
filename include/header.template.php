@@ -18,6 +18,24 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+  <!-- these are to be used as star-ratings plugins -->
+  <!-- default styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.1.1/css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
+
+  <!-- with v4.1.1 Krajee SVG theme is used as default (and must be loaded as below) - include any of the other theme CSS files as mentioned below (and change the theme property of the plugin) -->
+  <link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.1.1/themes/krajee-svg/theme.css" media="all" rel="stylesheet" type="text/css" />
+
+  <!-- important mandatory libraries -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.1.1/js/star-rating.min.js" type="text/javascript"></script>
+
+  <!-- with v4.1.1 Krajee SVG theme is used as default (and must be loaded as below) - include any of the other theme JS files as mentioned below (and change the theme property of the plugin) -->
+  <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.1.1/themes/krajee-svg/theme.js"></script>
+
+  <!-- optionally if you need translation for your language then include locale file as mentioned below (replace LANG.js with your own locale file) -->
+  <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.1.1/js/locales/LANG.js"></script>
+  <!-- these are to be used as star-ratings plugins -->
 </head>
 
 <body id="page-top">
@@ -33,7 +51,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-home"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">FSTM NewSystem <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">FSTM<sup>2</sup></div>
       </a>
 
       <!-- Divider -->

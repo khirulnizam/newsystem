@@ -13,7 +13,7 @@ method="post">
     include "include/dbconnect.php";
 
     //embed SQL commands
-    $sql = "SELECT * from ebooks";
+    $sql = "SELECT bookid,title,price from ebooks";
     //execute sql commands that will return result set
     $result = mysqli_query($conn, $sql);
 
