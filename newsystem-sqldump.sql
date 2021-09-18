@@ -35,6 +35,25 @@ INSERT INTO `activities` (`id`, `activityname`, `time`, `date`, `speaker`, `user
 	(2, 'masak bubur lambuk', '22:55:00', '2020-09-24', 'Tan Sri Farid', 3);
 /*!40000 ALTER TABLE `activities` ENABLE KEYS */;
 
+-- Dumping structure for table newsystem.ebookratings
+CREATE TABLE IF NOT EXISTS `ebookratings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ebookid` varchar(50) DEFAULT NULL,
+  `ebookreview` varchar(255) DEFAULT NULL,
+  `ratexample` int(11) DEFAULT NULL,
+  `ratexplain` int(11) DEFAULT NULL,
+  `rateoverall` int(11) DEFAULT NULL,
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table newsystem.ebookratings: ~3 rows (approximately)
+/*!40000 ALTER TABLE `ebookratings` DISABLE KEYS */;
+INSERT INTO `ebookratings` (`id`, `ebookid`, `ebookreview`, `ratexample`, `ratexplain`, `rateoverall`) VALUES
+	(1, 'FL01', 'love u flutter', 5, 5, 5),
+	(2, 'CV02', 'my love', 5, 5, 4),
+	(3, 'CV01', 'wqwqwqw', 5, 5, 5);
+/*!40000 ALTER TABLE `ebookratings` ENABLE KEYS */;
+
 -- Dumping structure for table newsystem.ebooks
 CREATE TABLE IF NOT EXISTS `ebooks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -47,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `ebooks` (
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
--- Dumping data for table newsystem.ebooks: ~0 rows (approximately)
+-- Dumping data for table newsystem.ebooks: ~8 rows (approximately)
 /*!40000 ALTER TABLE `ebooks` DISABLE KEYS */;
 INSERT INTO `ebooks` (`id`, `bookid`, `title`, `price`, `author`, `downloadlink`) VALUES
 	(8, 'FIR01', 'Google Firebase Firestore', 50.00, 'Khirulnizam', NULL),
@@ -59,6 +78,24 @@ INSERT INTO `ebooks` (`id`, `bookid`, `title`, `price`, `author`, `downloadlink`
 	(4, 'PHP02', 'Intermediate PHP with MYSQL', 50.00, 'Che Wan Shamsul', NULL),
 	(6, 'POW01', 'Powtoon Animation', 50.00, 'Muizz Salleh', NULL);
 /*!40000 ALTER TABLE `ebooks` ENABLE KEYS */;
+
+-- Dumping structure for table newsystem.faculty
+CREATE TABLE IF NOT EXISTS `faculty` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `codefaculty` varchar(50) NOT NULL,
+  `namefaculty` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`codefaculty`) USING BTREE,
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table newsystem.faculty: ~4 rows (approximately)
+/*!40000 ALTER TABLE `faculty` DISABLE KEYS */;
+INSERT INTO `faculty` (`id`, `codefaculty`, `namefaculty`) VALUES
+	(4, 'FP', 'Faculty of Education'),
+	(3, 'FPM', 'Faculty of Management & Muamalat'),
+	(2, 'FPPI', 'Faculty of Islamic Studies'),
+	(1, 'FSTM', 'Faculty of Information Science & Technology');
+/*!40000 ALTER TABLE `faculty` ENABLE KEYS */;
 
 -- Dumping structure for table newsystem.insts
 CREATE TABLE IF NOT EXISTS `insts` (
@@ -84,16 +121,21 @@ CREATE TABLE IF NOT EXISTS `jabatan` (
   `kodjbtn` varchar(50) NOT NULL,
   `namajbtn` varchar(50) DEFAULT NULL,
   `ketuajbtn` varchar(50) DEFAULT NULL,
+  `kodfakulti` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`kodjbtn`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table newsystem.jabatan: ~2 rows (approximately)
+-- Dumping data for table newsystem.jabatan: ~7 rows (approximately)
 /*!40000 ALTER TABLE `jabatan` DISABLE KEYS */;
-INSERT INTO `jabatan` (`id`, `kodjbtn`, `namajbtn`, `ketuajbtn`) VALUES
-	(3, 'JKKT', 'Jabatan Kemahiran Kursus Teras', 'Siti Noor'),
-	(2, 'JMM', 'Jabatan Multimedia', 'Nurul Ibtisam'),
-	(1, 'JSK', 'Jabatan Sains Komputer', 'Khirulnizam');
+INSERT INTO `jabatan` (`id`, `kodjbtn`, `namajbtn`, `ketuajbtn`, `kodfakulti`) VALUES
+	(6, 'JDUS', 'Jabatan Dakwah & Usuludin', 'Azman', 'FPPI'),
+	(5, 'JE', 'Jabatan Ekonomi', 'Syuhada', 'FPM'),
+	(3, 'JKKT', 'Jabatan Kemahiran Kursus Teras', 'Siti Noor', 'FSTM'),
+	(2, 'JMM', 'Jabatan Multimedia', 'Nurul Ibtisam', 'FSTM'),
+	(4, 'JP', 'Jabatan Perakaunan', 'Norlida', 'FPM'),
+	(1, 'JSK', 'Jabatan Sains Komputer', 'Khirulnizam', 'FSTM'),
+	(7, 'JTQ', 'Jabatan Tahfiz Qiraat', 'Mahfuz', 'FPPI');
 /*!40000 ALTER TABLE `jabatan` ENABLE KEYS */;
 
 -- Dumping structure for table newsystem.mentors
@@ -160,17 +202,25 @@ CREATE TABLE IF NOT EXISTS `programs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `programcode` varchar(6) NOT NULL DEFAULT '0',
   `programname` varchar(50) NOT NULL DEFAULT '0',
+  `codefaculty` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
--- Dumping data for table newsystem.programs: ~4 rows (approximately)
+-- Dumping data for table newsystem.programs: ~12 rows (approximately)
 /*!40000 ALTER TABLE `programs` DISABLE KEYS */;
-INSERT INTO `programs` (`id`, `programcode`, `programname`) VALUES
-	(1, 'MS36', 'Diploma in Multimedia'),
-	(2, 'MS39', 'Diploma in Computer Science'),
-	(3, 'BT01', 'Bach. Creative Multimedia'),
-	(4, 'BT02', 'Bach. Networking Technology'),
-	(5, 'BT05', 'Bach. Info System');
+INSERT INTO `programs` (`id`, `programcode`, `programname`, `codefaculty`) VALUES
+	(1, 'MS36', 'Diploma in Multimedia', 'FSTM'),
+	(2, 'MS39', 'Diploma in Computer Science', 'FSTM'),
+	(3, 'BT01', 'Bach. Creative Multimedia', 'FSTM'),
+	(4, 'BT02', 'Bach. Networking Technology', 'FSTM'),
+	(5, 'BT05', 'Bach. Info System', 'FSTM'),
+	(6, 'MS31', 'Diploma in Business', 'FPM'),
+	(7, 'MS32', 'Diploma in Accounting', 'FPM'),
+	(8, 'BB01', 'Bach. E-Commerce & Business', 'FPM'),
+	(9, 'BP01', 'Bach of TESL', 'FP'),
+	(10, 'BP02', 'Bach of Islamic Education', 'FP'),
+	(11, 'IS01', 'Diploma Usuluddin', 'FPI'),
+	(12, 'IS02', 'Diploma Bahasa Arab', 'FPPI');
 /*!40000 ALTER TABLE `programs` ENABLE KEYS */;
 
 -- Dumping structure for table newsystem.shortcourses
@@ -206,20 +256,22 @@ CREATE TABLE IF NOT EXISTS `students` (
   `dob` date DEFAULT NULL,
   `programcode` varchar(6) DEFAULT NULL,
   `rshortcourses` varchar(255) DEFAULT NULL,
+  `codefaculty` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`matrixno`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table newsystem.students: ~7 rows (approximately)
 /*!40000 ALTER TABLE `students` DISABLE KEYS */;
-INSERT INTO `students` (`id`, `matrixno`, `name`, `address`, `dob`, `programcode`, `rshortcourses`) VALUES
-	(1, '123451', 'Khirulnizam Abd Rahman', _binary 0x42616E6769, '2000-03-28', 'MS36', 'CV01, FL01, LR01'),
-	(3, '123453', 'Abu Bakar Atan', _binary 0x4E696C61692C204E2E2053656D62696C616E, '2000-04-05', 'BT05', NULL),
-	(5, '123457', 'Azman Ali', _binary 0x4E696C6169, '2000-11-24', 'MS39', 'CV01, CV02'),
-	(6, '123458', 'Syarifah Rahman', _binary 0x536572656D62616E65, '2000-10-19', 'MS36', 'MS01'),
-	(7, '123459', 'Aminah Hassan', _binary 0x4D656C616B61, '2000-03-10', 'MS39', 'CV01, CV02, MS01, LR01'),
-	(8, '123461', 'Amin bin Rahman', _binary 0x536572656D62616E, '2000-03-12', 'MS39', NULL),
-	(10, '123462', 'Ali Bakar Abu', _binary 0x5061726F69, '2000-08-05', 'MS36', NULL);
+INSERT INTO `students` (`id`, `matrixno`, `name`, `address`, `dob`, `programcode`, `rshortcourses`, `codefaculty`) VALUES
+	(1, '123451', 'Khirulnizam Abd Rahman', _binary 0x42616E6769, '2000-03-28', 'MS36', 'CV01, FL01, LR01', 'FSTM'),
+	(3, '123453', 'Abu Bakar Atan', _binary 0x4E696C61692C204E2E2053656D62696C616E, '2000-04-05', 'BT05', NULL, 'FSTM'),
+	(5, '123457', 'Azman Ali', _binary 0x4E696C6169, '2000-11-24', 'MS39', 'CV01, CV02', 'FSTM'),
+	(6, '123458', 'Syarifah Rahman', _binary 0x536572656D62616E65, '2000-10-19', 'MS36', 'MS01', 'FSTM'),
+	(7, '123459', 'Aminah Hassan', _binary 0x4D656C616B61, '2000-03-10', 'MS39', 'CV01, CV02, MS01, LR01', 'FSTM'),
+	(8, '123461', 'Amin bin Rahman', _binary 0x536572656D62616E, '2000-03-12', 'MS39', NULL, 'FSTM'),
+	(10, '123462', 'Ali Bakar Abu', _binary 0x5061726F69, '2000-08-05', 'MS36', NULL, 'FSTM'),
+	(11, '99001', 'Akula MD', _binary 0x4B616A616E67, '2009-01-17', 'IS02', NULL, 'FPPI');
 /*!40000 ALTER TABLE `students` ENABLE KEYS */;
 
 -- Dumping structure for table newsystem.students_register_scourses

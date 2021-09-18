@@ -7,7 +7,7 @@
 
 <label for="programcode">Program</label>
 	<select class="form-control" name="programcode" required>
-		<option value="">Select <?php echo $codefaculty; ?> program from this list
+		<option value selected disabled>Select <?php echo $codefaculty; ?> program from this list
 		</option>
 		<?php
 			

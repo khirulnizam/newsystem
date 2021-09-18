@@ -29,7 +29,7 @@ if(isset($_GET['message'])){
 	<label for="codefaculty">Faculty</label>
 	<select class="form-control" name="codefaculty" required
 	onchange="showprogramme(this.value)">
-		<option value="">Select faculty from this list
+		<option value disabled selected>Select faculty from this list
 		</option>
 		<?php
 			//connect to datase
