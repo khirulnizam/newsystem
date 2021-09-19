@@ -21,8 +21,7 @@ if(isset($_GET['ebookid']) && isset($_GET['ebookreview'])){
 	//echo "SQL: $sql :".mysqli_error($conn);
 
 	//redirect to ebook-star-rating-form.php
-	header("Location: ebook-star-rating-form.php?success=Rating/review successfully saved ($ebookid). 
-	Rate another book? ");
+	header("Location: ebook-star-rating-form.php?success=Rating/review successfully saved ($ebookid). Rate another book? ");
 }
 else{
 	header("Location: ebook-star-rating-form.php?error=Failed to save rating!!!");

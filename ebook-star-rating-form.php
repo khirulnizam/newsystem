@@ -44,13 +44,15 @@
     <input id="ratexplain" name="ratexplain" type="text" 
     class="rating" data-size="lg" 
     data-min="0" data-max="5" data-step="1"><br>
+
     Cool examples
     <input id="ratexample" name="ratexample" type="text" 
     class="rating" data-size="lg" 
     data-min="0" data-max="5" data-step="1"><br>
+    
     Cool overall content
     <input id="rateoverall" name="rateoverall" type="text" 
-    class="rating" data-size="lg" step="1"
+    class="rating" data-size="lg" 
     data-min="0" data-max="5" data-step="1"><br>
 
       <button type="submit" class="btn btn-primary">Send ebook rating</button>

@@ -35,6 +35,23 @@ INSERT INTO `activities` (`id`, `activityname`, `time`, `date`, `speaker`, `user
 	(2, 'masak bubur lambuk', '22:55:00', '2020-09-24', 'Tan Sri Farid', 3);
 /*!40000 ALTER TABLE `activities` ENABLE KEYS */;
 
+-- Dumping structure for table newsystem.departments
+CREATE TABLE IF NOT EXISTS `departments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `deptcode` varchar(10) NOT NULL,
+  `deptname` varchar(255) DEFAULT NULL,
+  `codefaculty` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`deptcode`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table newsystem.departments: ~0 rows (approximately)
+/*!40000 ALTER TABLE `departments` DISABLE KEYS */;
+INSERT INTO `departments` (`id`, `deptcode`, `deptname`, `codefaculty`) VALUES
+	(1, 'JEE', 'Jabatan Elektrik & Elektronik', 'FK'),
+	(2, 'JMK', 'Jabatan Mekanikal', 'FK');
+/*!40000 ALTER TABLE `departments` ENABLE KEYS */;
+
 -- Dumping structure for table newsystem.ebookratings
 CREATE TABLE IF NOT EXISTS `ebookratings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -44,14 +61,19 @@ CREATE TABLE IF NOT EXISTS `ebookratings` (
   `ratexplain` int(11) DEFAULT NULL,
   `rateoverall` int(11) DEFAULT NULL,
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
--- Dumping data for table newsystem.ebookratings: ~3 rows (approximately)
+-- Dumping data for table newsystem.ebookratings: ~7 rows (approximately)
 /*!40000 ALTER TABLE `ebookratings` DISABLE KEYS */;
 INSERT INTO `ebookratings` (`id`, `ebookid`, `ebookreview`, `ratexample`, `ratexplain`, `rateoverall`) VALUES
 	(1, 'FL01', 'love u flutter', 5, 5, 5),
 	(2, 'CV02', 'my love', 5, 5, 4),
-	(3, 'CV01', 'wqwqwqw', 5, 5, 5);
+	(3, 'CV01', 'wqwqwqw', 5, 5, 5),
+	(4, 'CV02', 'terbaik', 3, 5, 1),
+	(5, 'CV02', 'terbaik', 3, 5, 1),
+	(6, 'FL01', 'love this', 4, 4, 4),
+	(7, 'FL01', 'love this book ', 4, 5, 5),
+	(8, 'CV01', 'not loving it', 3, 3, 3);
 /*!40000 ALTER TABLE `ebookratings` ENABLE KEYS */;
 
 -- Dumping structure for table newsystem.ebooks
@@ -86,11 +108,12 @@ CREATE TABLE IF NOT EXISTS `faculty` (
   `namefaculty` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`codefaculty`) USING BTREE,
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table newsystem.faculty: ~4 rows (approximately)
 /*!40000 ALTER TABLE `faculty` DISABLE KEYS */;
 INSERT INTO `faculty` (`id`, `codefaculty`, `namefaculty`) VALUES
+	(5, 'FK', 'Faculty of Engineering'),
 	(4, 'FP', 'Faculty of Education'),
 	(3, 'FPM', 'Faculty of Management & Muamalat'),
 	(2, 'FPPI', 'Faculty of Islamic Studies'),
@@ -206,7 +229,7 @@ CREATE TABLE IF NOT EXISTS `programs` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
--- Dumping data for table newsystem.programs: ~12 rows (approximately)
+-- Dumping data for table newsystem.programs: ~11 rows (approximately)
 /*!40000 ALTER TABLE `programs` DISABLE KEYS */;
 INSERT INTO `programs` (`id`, `programcode`, `programname`, `codefaculty`) VALUES
 	(1, 'MS36', 'Diploma in Multimedia', 'FSTM'),
@@ -271,7 +294,7 @@ INSERT INTO `students` (`id`, `matrixno`, `name`, `address`, `dob`, `programcode
 	(7, '123459', 'Aminah Hassan', _binary 0x4D656C616B61, '2000-03-10', 'MS39', 'CV01, CV02, MS01, LR01', 'FSTM'),
 	(8, '123461', 'Amin bin Rahman', _binary 0x536572656D62616E, '2000-03-12', 'MS39', NULL, 'FSTM'),
 	(10, '123462', 'Ali Bakar Abu', _binary 0x5061726F69, '2000-08-05', 'MS36', NULL, 'FSTM'),
-	(11, '99001', 'Akula MD', _binary 0x4B616A616E67, '2009-01-17', 'IS02', NULL, 'FPPI');
+	(11, '199001', 'Akula MD', _binary 0x4B616A616E67, '2009-01-17', 'IS02', NULL, 'FPPI');
 /*!40000 ALTER TABLE `students` ENABLE KEYS */;
 
 -- Dumping structure for table newsystem.students_register_scourses

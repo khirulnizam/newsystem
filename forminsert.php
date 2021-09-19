@@ -63,7 +63,9 @@ if(isset($_GET['message'])){
 		}
 		</script>
 	<br>
-	<div id="listprogramme">Programmes by selected Faculty above will be listed here...</div>
+	<div id="listprogramme">
+		Programmes by selected Faculty above will be listed here...
+	</div>
 	<div class="float-right">
 		<button type="submit" class ="btn btn-primary">
 		Save record</button>
