@@ -2,7 +2,7 @@
 include "config.php";
 //include "log.php";
 include "listtoken.php";
-	$sampletext="Kalau kamu tunggu sehingga kucing bertanduk sekali pun, Aminah tidak akan hidup kembali...";
+	//$sampletext="Kalau kamu tunggu sehingga kucing bertanduk sekali pun, Aminah tidak akan hidup kembali...";
 	$searchentri=$_GET["txt"];
 ?>
 <html>
@@ -77,7 +77,7 @@ include "listtoken.php";
 
   echo "<br>";
   echo "Kata kunci carian: <b>$searchentri</b><br>";
-
+  include "endtimex.php";
 ?>
 <hr>
 <a href="http://khirulnizam.com">Dibangunkan oleh http://khirulnizam.com</a><br>
@@ -85,11 +85,7 @@ include "listtoken.php";
 <a href="https://www.facebook.com/khirulnizam"><img src="peribahasa-google-play-150.png"></a><br>
 <a href="https://www.facebook.com/khirulnizam">hubungi kami di Facebook</a><br>
 
-<?php
-//include "donate.php";
-//include "adsense.php";
-include "endtimex.php";
-?>
+
 	</div><!-- end content -->
 	
 	<!-- footer -->

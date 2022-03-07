@@ -4,15 +4,31 @@ include "log.php";
 include "listtoken.php";
 	$sampletext="Kalau kamu tunggu sehingga kucing bertanduk sekali pun, Aminah tidak akan hidup kembali...";
 	$searchentri=$_GET["txt"];
-?>
-<html>
+?><html>
 <head>
-<title>PERIBAHASA SCANNER: Cadangkan peribahasa dari teks Melayu - capaian Mobile</title>
+<title>Cari peribahasa dari teks Melayu - capaian Mobile</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/themes/peribahasa2.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" /> 
+  <script src="js/jquery-1.11.1.min.js"></script> 
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
 <?php
 //include "analytics.php";
 ?>
 </head>
+
 <body bgcolor="#C8FCC2">
+<!-- main page -->
+<div data-role="page" id="carian-peribahasa">
+	<!-- header -->
+	<div data-role="header" data-position="fixed">
+		<h1>Peribahasa Dictionary</h1>
+	</div>
+	
+	<!-- content -->
+	<div role="main" class="ui-content">
 <?php
   if($searchentri==""){
 	echo "Sila masukkan maksud peribahasa, terima kasih...<br>";
@@ -70,5 +86,13 @@ include "listtoken.php";
 include "endtimex.php";
 ?>
 
+</div><!-- end content -->
+	
+	<!-- footer -->
+	<!-- footer -->
+	<div data-role="footer">
+		Pembangun khirulnizam.com
+	</div><!-- end footer -->
+</div><!-- end of Carian Peribahasa -->
 </body>
 </html>

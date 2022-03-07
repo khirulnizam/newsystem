@@ -23,12 +23,55 @@
 	
 	<!-- content -->
 	<div role="main" class="ui-content">
-        <form action="kamus-peribahasa.php" method="get">
-            <input type="text" name="txt" placeholder="taip sebahagian peribahasa..."><br>
-            <input type="submit" name="btntxt" value="Cari peribahasa">
+        <img src="peribahasa-melayu.png" 
+        alt="Banner Peribahasa melayu" 
+        width="100%">
+    <script>
+    function carian(){
+       let string = document.getElementById("txt").value;
+       if (!string || string.length === 0){
+           alert("Pastikan taip carian peribahasa anda");
+           document.getElementById("txt").focus();
+       }
+       else{
+        window.location.replace("kamus-peribahasa.php?txt="+string);
+       }
+    }
+    function cadangan(){
+       let string = document.getElementById("txt").value;
+       if (!string || string.length === 0){
+           alert("Pastikan taip carian peribahasa anda");
+           document.getElementById("txt").focus();
+       }
+       else{
+            window.location.replace("and-cadang-peribahasa.php?txt="+string);
+        }
+    }
+    </script>
+        <form action="#" method="get">
+            <input type="text" id="txt" name="txt" placeholder="taip sebahagian peribahasa..."><br>
+            <input type="button" name="btntxt" 
+            value="Carian peribahasa" onClick="carian()">
+            <input type="button" name="btntxt" 
+            value="Cadangan peribahasa" onClick="cadangan()">
         </form>
 
-    </div>
-</div>
+
+    <hr>
+    <p align="center">
+<a href="http://khirulnizam.com">Dibangunkan oleh http://khirulnizam.com</a><br>
+
+<a href="https://www.facebook.com/khirulnizam"><img src="peribahasa-google-play-150.png"></a><br>
+<a href="https://www.facebook.com/khirulnizam">hubungi kami di Facebook</a><br>
+
+</p>
+	</div><!-- end content -->
+	
+	<!-- footer -->
+	<!-- footer -->
+	<div data-role="footer" data-position="fixed">
+		Pembangun khirulnizam.com
+	</div><!-- end footer -->
+</div><!-- end of Carian Peribahasa -->
 </body>
 </html>
