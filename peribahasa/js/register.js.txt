@@ -1,0 +1,52 @@
+// Wait for Cordova to load
+document.addEventListener("deviceready", onDeviceReady, false);
+
+// Cordova is ready
+function onDeviceReady() {
+    //var shortname='DBNAME';
+    //var version ='1.0';
+    //var displayname='DBNAME';
+    //var maxsize=100000;//bytes
+    // openDatabase(shortname, version, displayname,maxsize);
+    var db=window.openDataBase("DemoApp", "1.0", 200000);
+    db.transaction(createTbl, errorCreate, successCreate);
+}
+
+function register(){
+    if($("#txtusername").val() ===""){
+        alert("Pls enter username");
+        
+    }
+    else if($("#txtpassword").val()===""){
+        alert("Pls enter password");
+        
+    }
+    else if($("#txtconpassword").val()===""){
+        alert("Pls confirm password");
+        
+    }
+    else if($("#txtemail").val()===""){
+        alert("Pls enter email");
+        
+    }
+    else{
+        alert("Check OK");
+    }
+}
+
+function createDB(tx){
+    tx.executeSql("CREATE TABLE IF NOT EXIST tbluser (id integer primary key autoincreement, username, password,email)");
+}
+
+function errorCreate(db, err){
+    alert ("error creating database. Error"+err);
+    
+}
+function successCreate(){
+    alert("Success create tbluser");
+}
+
+function registeruser(){
+    var db=window.openDataBase("DemoApp", "1.0", 200000);
+    db.transaction(createTbl, errorCreate, successCreate);
+}
