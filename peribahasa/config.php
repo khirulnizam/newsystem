@@ -7,7 +7,10 @@ include "starttimex.php";
  * Window - Preferences - PHPeclipse - PHP - Code Templates
  */
 
- $db=mysqli_connect("localhost","khirulni_joom792","131jlnpch7","khirulni_joom792");
+ $db=mysqli_connect("localhost",
+ "newsystem",
+ "root",
+ "");
 //Check connection
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error($db));
