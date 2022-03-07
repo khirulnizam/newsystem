@@ -21,7 +21,7 @@ include "listtoken.php";
 		 "</html>";*/
   }// end input NULL
   else{
-  	$searchidioms="SELECT * FROM a_senarai WHERE " .
+  	$searchidioms="SELECT * FROM a_peribahasa_e WHERE " .
 					"MATCH(makna,contoh) AGAINST ('$searchentri'  IN NATURAL LANGUAGE MODE) ";
 	//echo $searchidioms."<br>";
 	$qr=mysqli_query($db,$searchidioms);

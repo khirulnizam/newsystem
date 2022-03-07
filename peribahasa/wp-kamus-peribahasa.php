@@ -46,7 +46,7 @@ include "listtoken.php";
 
   else{
 
-  	$searchidioms="SELECT * FROM a_senarai_e WHERE " .
+  	$searchidioms="SELECT * FROM a_peribahasa_e WHERE " .
 
 					"MATCH(entri) AGAINST ('$searchentri'  IN NATURAL LANGUAGE MODE) ";
 

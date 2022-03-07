@@ -90,7 +90,7 @@ include "listtoken.php";
 
 		$words2=$wlist[$i]." ".$wlist[$i+1];
 
-		$searchidioms="SELECT * FROM a_senarai_e WHERE " .
+		$searchidioms="SELECT * FROM a_peribahasa_e WHERE " .
 
 				"entri LIKE '$words2' ";
 

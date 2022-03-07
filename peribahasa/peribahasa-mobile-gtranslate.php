@@ -46,7 +46,7 @@ include "listtoken.php";
 
 		// use look ahead to produce combine word with 2 word
 		$words2=$wlist[$i]." ".$wlist[$i+1];
-		$searchidioms="SELECT * FROM a_senarai WHERE " .
+		$searchidioms="SELECT * FROM a_peribahasa_e WHERE " .
 				"entri LIKE '$words2' ";
 		//
 		$qr=mysqli_query($db,$searchidioms);
@@ -87,7 +87,7 @@ include "listtoken.php";
 
 		// use look ahead to produce combine word with 2 word
 		$words3=$wlist[$i]." ".$wlist[$i+1]." ".$wlist[$i+2];
-		$searchidioms="SELECT * FROM a_senarai WHERE " .
+		$searchidioms="SELECT * FROM a_peribahasa_e WHERE " .
 				"entri LIKE '$words3%' ";
 		//echo $searchidioms."<br>";
 		$qr=mysqli_query($db,$searchidioms);

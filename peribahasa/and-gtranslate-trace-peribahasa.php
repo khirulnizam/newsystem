@@ -48,7 +48,7 @@ else{//input NOT NULL
 
 		// use look ahead to produce combine word with 2 word
 		$words2=$wlist[$i]." ".$wlist[$i+1];
-		$searchidioms="SELECT * FROM a_senarai_e WHERE " .
+		$searchidioms="SELECT * FROM a_peribahasa_e WHERE " .
 				"entri = '$words2' ";
 		//
 		$qr=mysqli_query($db,$searchidioms);

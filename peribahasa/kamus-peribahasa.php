@@ -38,7 +38,7 @@ include "listtoken.php";
 		 "</html>";*/
   }// end input NULL
   else{
-  	$searchidioms="SELECT * FROM a_senarai_e WHERE " .
+  	$searchidioms="SELECT * FROM a_peribahasa_e WHERE " .
 					"MATCH(entri) AGAINST ('$searchentri'  IN NATURAL LANGUAGE MODE) ";
 	//echo $searchidioms."<br>";
 	$qr=mysqli_query($db,$searchidioms);
@@ -80,10 +80,10 @@ include "listtoken.php";
 
 ?>
 <hr>
-<a href="http://KERUL.net">Dibangunkan oleh KERUL.net</a><br>
+<a href="http://khirulnizam.com">Dibangunkan oleh http://khirulnizam.com</a><br>
 
-<a href="https://www.facebook.com/pages/blogkerulnet/201678276509766"><img src="peribahasa-google-play-150.png"></a><br>
-<a href="https://www.facebook.com/pages/blogkerulnet/201678276509766">hubungi kami di Facebook</a><br>
+<a href="https://www.facebook.com/khirulnizam"><img src="peribahasa-google-play-150.png"></a><br>
+<a href="https://www.facebook.com/khirulnizam">hubungi kami di Facebook</a><br>
 
 <?php
 //include "donate.php";
@@ -95,7 +95,7 @@ include "endtimex.php";
 	<!-- footer -->
 	<!-- footer -->
 	<div data-role="footer">
-		Pembangun KERUL.net
+		Pembangun khirulnizam.com
 	</div><!-- end footer -->
 </div><!-- end of Carian Peribahasa -->
 </body>

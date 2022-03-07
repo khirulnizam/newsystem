@@ -8,17 +8,12 @@ include "starttimex.php";
  */
 
  $db=mysqli_connect("localhost",
- "newsystem",
  "root",
- "");
+ "",
+ "newsystem");
 //Check connection
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error($db));
     exit();
 }
-/*
-	public $user = 'khirulni_joom792';
-	public $password = '8lodP19ydS';
-	public $db = 'khirulni_joom792';
-*/
 ?>
